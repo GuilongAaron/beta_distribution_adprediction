@@ -10,19 +10,12 @@ MAX_USER = 1000
 RAND = random.Random(1234)
 
 
-# def parse_user(line):
-#     return int(line[2:])
-#
-#
-# def parse_click(line):
-#     return int(line[2:])
-
-
 def select_ad(user, m, summary, user_segment, total):
     """
     user: user_id
     m: numbers of ads
     summary: List[List[int]]: user_id, ad_id, number of displays, clicks
+    user_segment: a dictionary for user segment finder: {user id: segment id}
     total: n, m, 2
     """        
     gamma_ab = 1  # single case coefficient
@@ -64,13 +57,12 @@ def read_user_segment():
     """
     read segments.csv from data folder.
     """
+    user_segment = {}
     with open(os.path.join(BASE_DIR, "data", "segments.csv"), "rt") as f:
         lines = [line.rstrip().split(",") for line in f.readlines()]
-        user_segment = [(
-            int(line[0]),  # User ID
-            int(line[1])   # Segment ID
-        ) for line in lines]
-    return dict(user_segment)
+        for line in lines:
+            user_segment[int(line[0])] = int(line[1])
+    return user_segment
 
 
 def read_summary():
