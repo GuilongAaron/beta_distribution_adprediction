@@ -16,18 +16,18 @@ For K actions, mean rewards $\theta = \left(\theta_a, \dots, \theta_K\right)$ is
 A reward $r_1 \in [0, 1]$ is generated with success probability $$\mathbb P\left(r_1 = 1 | x_1, \theta\right) = \theta_{x_1}$$ After observing $r_1$, system will update its parameters accordingly.
 
 ## Algorithm
-> for t = 1, 2, $\dots$ do \
+> for t = 1, 2, $\dots$ do 
 > > \# sample model:\
-> > for k = 1, $\dots$ , K do\
-> > > sample $\hat \theta_k \sim beta\left(\alpha_k, \beta_k\right) $ \
+> > for k = 1, $\dots$ , K do
+> > > sample $\hat \theta_k \sim beta \left(\alpha_k, \beta_k\right)$ 
 > > 
-> > end for \
+> > end for 
 >  
 > > \# select and apply action: \
 > > $x_t \leftarrow argmax_k \hat \theta_k$
 > >
-> > \# update distribution:
-> > $(\alpha_{x_t}, \beta_{x_t})\leftarrow(\alpha_{x_t} + r_t, \beta_{x_t} + 1 - r_t)$ \
+> > \# update distribution: \
+> > $(\alpha_{x_t}, \beta_{x_t})\leftarrow(\alpha_{x_t} + r_t, \beta_{x_t} + 1 - r_t)$ 
 >
 > end for
 
