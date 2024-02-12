@@ -29,7 +29,7 @@ A reward $r_1 \in [0, 1]$ is generated with success probability $$\mathbb P\left
 > > \# update distribution: \
 > > $(\alpha_{x_t}, \beta_{x_t})\leftarrow(\alpha_{x_t} + r_t, \beta_{x_t} + 1 - r_t)$ 
 >
-> end for
+> end for 
 
 
 ## Input data explanation
